@@ -11,7 +11,7 @@ This application delivers **three complete, interactive dashboards** in a single
 3. **IT Operations Service Desk Dashboard** – Pinpoints staff/process delays in ticket resolution  
 
 All mandatory features are implemented:
-  
+
 - Secure authentication (bcrypt + SQLite)  
 - Full CRUD operations across all domains  
 - Clean OOP refactoring (entity models + service classes)  
@@ -19,4 +19,29 @@ All mandatory features are implemented:
 - AI Assistant powered by OpenAI GPT (context-aware advice in all dashboards)  
 - Proper separation of concerns (models / services / database / pages)
 
-## Final Project Structure  
+## Final Project Structure
+  
+multi_domain_platform/
+├── models/                  # Entity classes (OOP)
+│   ├── user.py
+│   ├── security_incident.py
+│   ├── dataset.py
+│   └── it_ticket.py
+├── services/                # Business logic & coordination
+│   ├── auth_manager.py
+│   ├── database_manager.py
+│   └── ai_assistant.py
+├── database/
+│   └── db.py                # SQLite connection & schema
+├── pages/                   # Streamlit multi-page navigation
+│   ├── 1_Login.py
+│   ├── 2_Cybersecurity.py
+│   ├── 3_Data_Science.py
+│   ├── 4_IT_Operations.py
+│   └── 5_AI_Assistant.py
+├── Data/
+│   └── platform.db          # Production SQLite database
+app.py                       # Streamlit entry point
+secrets.toml                 # OpenAI API key (gitignored)
+requirements.txt
+README.md
