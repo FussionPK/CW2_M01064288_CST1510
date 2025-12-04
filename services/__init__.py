@@ -1,11 +1,11 @@
 from .ai_assistant import AIService
 from .auth_manager import AuthManagerService
-from .database_manager import DBmanagerService
+from .database_manager import DbManagerService
 
 __all__ = [
     "AIService",
     "AuthManagerService",
-    "DBmanagerService",
+    "DbManagerService",
 ]
 
 #the above code will ensure importing from services package will have access to all the defined classes.
