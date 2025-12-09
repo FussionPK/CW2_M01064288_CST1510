@@ -1,4 +1,9 @@
-class User:
+from models.base import BaseRecord
+
+
+class User(BaseRecord):
+    """Represents a platform user."""
+
     def __init__(self, user_id: int, username: str, email: str, role: str, password_hash: str):
         self.user_id = user_id
         self.username = username
@@ -7,4 +12,7 @@ class User:
         self.password_hash = password_hash
 
     def __repr__(self):
-        return f"User(user_id={self.user_id}, username='{self.username}', email='{self.email}', role='{self.role}', password_hash='{self.password_hash}')"
+        return (
+            f"User(user_id={self.user_id}, username='{self.username}', email='{self.email}', "
+            f"role='{self.role}', password_hash='{self.password_hash}')"
+        )

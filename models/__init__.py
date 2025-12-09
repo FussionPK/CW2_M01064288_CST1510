@@ -1,14 +1,15 @@
+from .base import BaseRecord
 from .user import User
 from .security_incident import Incident
-from .it_ticket import Tickets
-from .dataset import Data_Set
+from .it_ticket import Ticket
+from .dataset import DataSet
 
 __all__ = [
+    "BaseRecord",
     "User",
     "Incident",
-    "Tickets",
-    "Data_set",
+    "Ticket",
+    "DataSet",
 ]
 
-#the above code will ensure importing from models package will have access to all the defined classes.
-#also it will look neater when importing from models package.
+# The list above keeps imports tidy for the models package.
