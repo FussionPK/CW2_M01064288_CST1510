@@ -12,4 +12,4 @@ __all__ = [
     "DataSet",
 ]
 
-# The list above keeps imports tidy for the models package.
+# The list above keeps imports neat for the models package.

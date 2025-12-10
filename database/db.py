@@ -4,14 +4,14 @@ from pathlib import Path
 from typing import Optional
 
 
-DB_FILENAME = "app.db"
+DB_FILENAME = "platform.db"
 
 
 def get_db_path() -> str:
 	"""Return the database file path under the database folder."""
-	base_dir = Path(__file__).resolve().parent
+	base_dir = Path(__file__).resolve().parent 
 	db_path = base_dir / DB_FILENAME
-	return str(db_path)
+	return str(db_path) #eg "/path/to/database/platform.db"
 
 
 class DatabaseConnection:
@@ -35,8 +35,8 @@ class DatabaseConnection:
 
 	def initialize(self) -> None:
 		# Create tables if they do not exist
-		connection = self.connect()
-		cursor = connection.cursor()
+		conn = self.connect()
+		cursor = conn.cursor()
 
 		cursor.execute(
 			"""
@@ -93,8 +93,8 @@ class DatabaseConnection:
 			"""
 		)
 
-		connection.commit()
-		connection.close()
+		conn.commit()
+		conn.close()
 		self._seed_basic_data()
 
 	def _seed_basic_data(self) -> None:

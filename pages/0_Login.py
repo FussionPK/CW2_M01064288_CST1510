@@ -15,6 +15,7 @@ def get_services():
 
 
 def main():
+	st.set_page_config(page_title="Login", page_icon=":bar_chart:", initial_sidebar_state="collapsed")
 	st.title("Login")
 
 	if "user" not in st.session_state:
@@ -38,13 +39,14 @@ def main():
 				st.warning("Invalid username or password.")
 			else:
 				st.session_state["user"] = user
-				st.success(f"Welcome {user['username']}! Role: {user['role']}")
+				st.success(f"Welcome {user['username']}! Redirecting...")
+				st.switch_page("Home.py")
 
 	with register_placeholder.form("register_form"):
 		st.subheader("Register")
 		new_username = st.text_input("New Username")
 		new_email = st.text_input("Email")
-		new_role = st.selectbox("Role", ["admin", "analyst", "viewer"])
+		new_role = st.selectbox("Role", ["analyst", "viewer"])
 		new_password = st.text_input("New Password", type="password")
 		register_button = st.form_submit_button("Create Account")
 		if register_button:
@@ -62,6 +64,10 @@ def main():
 		st.write("Username:", user_info["username"])
 		st.write("Role:", user_info["role"])
 		st.write("Email:", user_info["email"])
+		logout_button = st.button("Logout")
+		if logout_button:
+			st.session_state["user"] = None
+			st.success("You have logged out.")
 
 
 if __name__ == "__main__":
