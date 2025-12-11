@@ -1,7 +1,12 @@
+import google.generativeai as genai
+
 class AIService:
-    def __init__(self, model_name: str, api_key: str):
-        self.model_name = model_name
+    def __init__(self, api_key: str):
         self.api_key = api_key
+        genai.configure(api_key=api_key)
+        self.model = genai.GenerativeModel('gemini-2.0-flash')
+    
     def generate_response(self, prompt: str) -> str:
-        # Placeholder for AI response generation logic
-        return f"Response from {self.model_name} for prompt: {prompt}"
+        """Generate response from Google Gemini API"""
+        response = self.model.generate_content(prompt)
+        return response.text

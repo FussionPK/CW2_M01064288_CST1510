@@ -1,7 +1,4 @@
-from models.base import BaseRecord
-
-
-class Incident(BaseRecord):
+class Incident:
     """Represents a simple security incident record."""
 
     def __init__(self, incident_id: int, title: str, description: str, severity: str, status: str, reported_by: str, assigned_to: str, created_at: str, updated_at: str):

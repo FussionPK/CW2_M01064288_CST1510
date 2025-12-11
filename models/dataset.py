@@ -1,7 +1,4 @@
-from models.base import BaseRecord
-
-
-class DataSet(BaseRecord):
+class DataSet:
     """Represents a managed dataset."""
 
     def __init__(self, dataset_id: int, name: str, description: str, created_at: str, updated_at: str):

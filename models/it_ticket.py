@@ -1,7 +1,4 @@
-from models.base import BaseRecord
-
-
-class Ticket(BaseRecord):
+class Ticket:
     """Represents a simple IT service desk ticket."""
 
     def __init__(self, ticket_id: int, title: str, description: str, status: str, priority: str, created_at: str, updated_at: str, assigned_to: str):

@@ -19,29 +19,6 @@ All mandatory features are implemented:
 - AI Assistant powered by OpenAI GPT (context-aware advice in all dashboards)  
 - Proper separation of concerns (models / services / database / pages)
 
-## Final Project Structure
-  
-multi_domain_platform/
-├── models/                  # Entity classes (OOP)
-│   ├── user.py
-│   ├── security_incident.py
-│   ├── dataset.py
-│   └── it_ticket.py
-├── services/                # Business logic & coordination
-│   ├── auth_manager.py
-│   ├── database_manager.py
-│   └── ai_assistant.py
-├── database/
-│   └── db.py                # SQLite connection & schema
-├── pages/                   # Streamlit multi-page navigation
-│   ├── 1_Login.py
-│   ├── 2_Cybersecurity.py
-│   ├── 3_Data_Science.py
-│   ├── 4_IT_Operations.py
-│   └── 5_AI_Assistant.py
-├── Data/
-│   └── platform.db          # Production SQLite database
-app.py                       # Streamlit entry point
-secrets.toml                 # OpenAI API key (gitignored)
-requirements.txt
-README.md
+## Final Project Description
+
+The multi-domain platform is a Streamlit-based web application that combines cybersecurity monitoring, data science tools, IT operations ticketing, and an AI assistant into one secure, multi-page interface. The project is organized as follows: the root folder contains app.py (the main Streamlit entry point), requirements.txt, a git-ignored secrets.toml for the OpenAI API key, and a README.md. Inside, the models directory holds object-oriented entity classes (user.py, security_incident.py, dataset.py, and it_ticket.py), the services directory contains the core business logic (auth_manager.py for authentication, database_manager.py for database operations, and ai_assistant.py for AI features), the database directory has db.py which manages the SQLite connection and schema, the pages directory includes the individual Streamlit pages (1_Login.py, 2_Cybersecurity.py, 3_Data_Science.py, 4_IT_Operations.py, and 5_AI_Assistant.py), and the Data directory stores the actual production SQLite database file platform.db.

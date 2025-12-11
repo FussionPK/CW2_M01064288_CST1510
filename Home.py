@@ -3,16 +3,16 @@ import streamlit as st
 from database.db import DatabaseConnection
 
 
-def prepare_database():
+def initialize_application_database():
 	# Ensure tables exist before pages run
-	db = DatabaseConnection()
-	db.initialize()
+	database_connection = DatabaseConnection()
+	database_connection.initialize()
 
 
 def main():
 	st.set_page_config(page_title="Multi-Domain Platform", page_icon=":bar_chart:", initial_sidebar_state="expanded")
 
-	prepare_database()
+	initialize_application_database()
 
 	# Initialize session state for user
 	if "user" not in st.session_state:
@@ -24,7 +24,8 @@ def main():
 		return
 
 	# If user is logged in, show welcome page with sidebar
-	st.title(f"Welcome, {st.session_state['user']['username']}!")
+	current_logged_in_user = st.session_state["user"]
+	st.title(f"Welcome, {current_logged_in_user['username']}!")
 	st.write("You can navigate using the sidebar to access all dashboards.")
 	st.subheader("Available Pages")
 	st.write("- Cybersecurity: track and manage security incidents")

@@ -1,7 +1,4 @@
-from models.base import BaseRecord
-
-
-class User(BaseRecord):
+class User:
     """Represents a platform user."""
 
     def __init__(self, user_id: int, username: str, email: str, role: str, password_hash: str):
